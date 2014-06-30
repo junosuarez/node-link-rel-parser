@@ -31,6 +31,10 @@ function linkRelParser (url, cb) {
 
   function end(e, res) {
 
+    if (e) {
+      return cb(e)
+    }
+
     if (res.headers.link){
       parseHeader(res.headers.link).forEach(function (link) {
         // header links should take precedence over html links for security - overwrite completely
