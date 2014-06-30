@@ -3,7 +3,14 @@
   "author": "jden <jason@denizac.org>",
   "version": "0.1.0",
   "description": "parse HTTP link headers and HTML links",
-  "keywords": ["link", "rel", "http", "html", "indieweb", "discovery"],
+  "keywords": [
+    "link",
+    "rel",
+    "http",
+    "html",
+    "indieweb",
+    "discovery"
+  ],
   "main": "index.js",
   "scripts": {
     "test": "mocha"
@@ -14,5 +21,12 @@
   "devDependencies": {
     "chai": "^1.9.1",
     "mocha": "^1.19.0"
+  },
+  "dependencies": {
+    "parse-link-header": "^0.1.0",
+    "request": "^2.36.0",
+    "htmlparser2": "^3.7.2",
+    "through2-map": "^1.4.0",
+    "http-link": "^0.3.0"
   }
 }

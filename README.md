@@ -4,11 +4,23 @@ parse HTTP link headers and HTML links
 ## usage
 ```js
 var linkRelParser = require('link-rel-parser')
+ e.g.
+ linkRelParser('http://log.jden.us', function (e, links) {
+   console.log(e, links)
+ })
 ```
 
+links is an object like:
 
-## api
+```js
+  {
+    shortcut: ['http://assets.tumblr.com/images/default_avatar/cube_closed_128.png' ],                                                          
+    icon: [ 'http://assets.tumblr.com/images/default_avatar/cube_closed_128.png' ],                                                                   
+    alternate: [ 'android-app://com.tumblr/tumblr/x-callback-url/blog?blogName=logjdenus' ],                                                          
+    stylesheet: [ 'http://assets.tumblr.com/fonts/gibson/stylesheet.css?v=3']
+  }                                                                      
 
+```
 
 ## installation
 
