@@ -2,12 +2,13 @@ var request = require('request')
 var htmlParser = require('htmlparser2').Parser
 var parseHeader = require('http-link').parse
 var map = require('through2-map')
+var url = require('url')
 
-function linkRelParser (url, cb) {
+function linkRelParser (resourceUrl, cb) {
   
   var links = {}
 
-  request({url: url}, end)
+  request({url: resourceUrl}, end)
     .pipe(map(function (x) {
       return x.toString()
     }))
@@ -21,7 +22,11 @@ function linkRelParser (url, cb) {
           if (!links[rel]) {
             links[rel] = []
           }
-          links[rel].push(attribs.href)  
+
+          // resolve relative links
+          var link = url.resolve(resourceUrl, attribs.href)
+
+          links[rel].push(link)
         })
         
       }
